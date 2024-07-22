@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const CRMSchema = new mongoose.Schema({
-    name: String ,
+    Name: String,
     age: Number ,
   });
 
