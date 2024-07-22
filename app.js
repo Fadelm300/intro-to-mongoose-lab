@@ -2,7 +2,8 @@ const prompt = require('prompt-sync')();
 const dotenv = require("dotenv")
 dotenv.config()
 const mongoose = require("mongoose")
-const crm = require('./CRM')
+const crm = require('./CRM');
+const CRM = require('./CRM');
 
 
 
@@ -43,29 +44,12 @@ const connect = async () => {
     
     return choice;
         };
+
         // prompt
         //window.prompt() instructs the browser to display a dialog with an optional message prompting the user to input some text, and to wait until the user either submits the text or cancels the dialog.
         //=============
         //parseInt
         //The parseInt() function parses a string argument and returns an integer of the specified radix (the base in mathematical numeral systems).
-
-
-
-        // 1. Create a customer
-
-        const Create_C = async()=>{
-            const Name =prompt("Enter customer Name ");
-
-            const age = prompt('Enter customer age: '); 
-
-            const C_Data = { Name, age };
-
-            const  CRM = await crm.create(C_Data);
-
-            console.log("New customer ",  CRM ) ;
-        }
-
-
 
 
 const app = async () => {
@@ -99,3 +83,25 @@ const app = async () => {
         
     
 };
+
+        // 1. Create a customer
+
+        const Create_C = async()=>{
+            const Name =prompt("Enter customer Name ");
+
+            const age = prompt('Enter customer age: '); 
+
+            const C_Data = { Name, age };
+
+            const  CRM = await crm.create(C_Data);
+
+            console.log("New customer ",  CRM ) ;
+        }
+
+
+        const find_C = async () => {
+            const CRM = await   crm.find({});
+            console.log("All customers:", CRM);
+        };
+  
+
