@@ -75,11 +75,8 @@ const app = async () => {
 
         } else if (choice === '5') {
 
-            console.log('logged out');
-        } else {
-
-            console.log('try again ');
-        }
+            console.log('Quit');
+        } 
         
     
 };
@@ -105,3 +102,39 @@ const app = async () => {
         };
   
 
+        const update_C = async()=>{
+            console.log('Below is a list of customers:')
+            //show the users from the data 
+            await find_C();
+
+            const id = prompt('Enter Customer Id');
+            const Name = prompt('new Name ');
+            const age = prompt('new age? ');
+
+//findByIdAndUpdate will find the element in the data using the id and will replace the name and age
+            const update_C = await CRM.findByIdAndUpdate(id, { Name ,age });
+
+             console.log("Updated customer:", update_C);
+
+        }
+
+        const delete_C = async () => {
+             //show the users from the data 
+             await find_C();
+
+            const id = prompt('Enter customer Id ');
+            const delet_c = await CRM.findByIdAndDelete(id);
+            console.log('Removed customer:', delet_c);
+            console.log("customer Removed")
+        };
+
+
+
+
+
+
+
+
+
+
+        
